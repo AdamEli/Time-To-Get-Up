@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Break</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}"/>
+    </head>
+    <body>
+        <a href="/"><button id="back" class=grey>Back</button></a>
+        <h1 class="status">Break</h1>
+        <main class="main">
+            <span class="timer" id="timer">{{ time }}m</span>
+            <progress max="{{ time }}" value="{{ time }}" class="progress progress--set" id="progressBar"></progress>
+        </main>
+
+        <audio autoplay id="audio">
+            <source src="//assets.ctfassets.net/v3n26e09qg2r/41udmkyjFR9bRu8XnGJETc/1bec544b4dc6022c74c825c8213c201a/The_Wake_Up_-_Earth_Day.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+        </audio>
+        <script type="application/javascript">
+            var audio = document.getElementById("audio");
+            audio.volume = 0.2;
+            if(audio.currentTime>2){
+                audio.pause();
+            }
+
+            const timerElement = document.getElementById("timer");
+            const progressBar = document.getElementById("progressBar")
+            var timerCounter = progressBar.max;
+
+            const interval = setInterval(() => {
+                if (timerCounter <= 1) {
+                    window.location.href = "{{ url_for('timer') }}";
+                    clearInterval(interval);
+                }
+                timerCounter = timerCounter - 1;
+
+                timerElement.innerText = timerCounter + "m";
+                progressBar.value = timerCounter;
+            }, 60000);
+        </script>
+    </body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Timer</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}"/>
+    </head>
+    <body>
+        <a href="/"><button id="back" class=grey>Back</button></a>
+        <h1 class="status">Timer</h1>
+        <main class="main">
+            <span class="timer" id="timer">{{ time }}m</span>
+            <progress max="{{ time }}" value="{{ time }}" class="progress progress--set" id="progressBar"></progress>
+        </main>
+
+        <script type="application/javascript">
+            const timerElement = document.getElementById("timer");
+            const progressBar = document.getElementById("progressBar")
+            var timerCounter = progressBar.max;
+
+            const interval = setInterval(() => {
+                if (timerCounter <= 1) {
+                    window.location.href = "{{ url_for('breakTime') }}";
+                    clearInterval(interval);
+                }
+                timerCounter = timerCounter - 1;
+
+                timerElement.innerText = timerCounter + "m";
+                progressBar.value = timerCounter;
+            }, 60000);
+        </script>
+    </body>
+</html>

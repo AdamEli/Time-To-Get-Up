@@ -1,0 +1,67 @@
+.form-group {
+    padding: 10px 20px;
+    display: flex;
+    justify-content: center;
+
+}
+
+#top-input {
+    margin-top: 20px;
+}
+
+.btn {
+    padding: 6px 12px;
+    background-color: unset;
+    border: 2px solid #1c2023;
+    cursor: pointer;
+
+}
+
+.dbtn {
+    text-align:center;
+    padding: 20px 40px;
+}
+
+.btn:hover {
+    background-color: #1c2023;
+    color: white;
+}
+
+html {
+    font-family: "Segoe UI", Arial, Helvetica, sans-serif;
+    font-size: 17px;
+}
+
+body {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+h1 {
+    font-size: 1.5rem;
+    text-align: center;
+    margin-bottom: 2rem;
+    text-transform: uppercase;
+}
+
+.back {
+    display: block;
+    margin-right: 10px;
+}
+
+.timer {
+    display: block;
+    font-size: 3rem;
+    text-align: center;
+    margin-bottom: .75rem;
+}
+
+.progress {
+    display: block;
+    width: 80%;
+    margin: 0 auto;
+    border: 1px solid #cdc7c2;
+    background-image: none;
+    -webkit-appearance: none;
+}
